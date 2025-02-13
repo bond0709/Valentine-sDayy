@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Surprise</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: pink; }
+        h1 { color: red; animation: fadeIn 2s ease-in-out; }
+        button { padding: 10px 20px; font-size: 16px; background-color: red; color: white; border: none; cursor: pointer; margin-top: 20px; }
+        #message { display: none; font-size: 18px; color: darkred; margin-top: 20px; animation: fadeIn 2s ease-in-out; }
+        .image-container { display: none; margin-top: 20px; animation: fadeIn 2s ease-in-out; }
+        img { width: 200px; border-radius: 10px; margin: 10px; cursor: pointer; }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script>
+        let images = ["รูป1.jpeg", "รูป2.jpg", "รูป3.jpg", "รูป4.jpg", "รูป5.jpg", "รูป6.jpg", "รูป7.jpg", "รูป8.jpg", "รูป9.jpg", "รูป10.jpg", "รูป11.jpg", "รูป12.jpg", "รูป13.jpg", "รูป14.jpeg", "รูป15.jpeg", "รูป16.jpeg", "รูป17.jpeg"];
+        let currentIndex = 0;
+        
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('image-container').style.display = 'flex';
+            document.getElementById('audio').play();
+        }
+        
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('displayed-image').src = images[currentIndex];
+        }
+    </script>
+</head>
+<body>
+    <h1>Happy Valentine's Day! 💖</h1>
+    <button onclick="showMessage()">เปิดเซอร์ไพรส์!</button>
+    <p id="message">💙 Happy Valentine's Day. Love you today and always💙</p>
+    <div id="image-container" class="image-container" style="display: none; justify-content: center;">
+        <img id="displayed-image" src="รูป1.jpeg" alt="Memory 1" onclick="changeImage()">
+    </div>
+    <audio id="audio">
+        <source src="V.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
